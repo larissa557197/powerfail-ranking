@@ -29,11 +29,12 @@
 
     <h1>🦸‍♂️ Superpoderes Mais Inúteis Já Criados</h1>
 
-    <div th:each="poder : ${powers}" class="powers">
-        <h2 th:text="${powers.Nome}">Nome do poder</h2>
-        <p th:text="${powers.Descrição}">Descrição do poder</p>
-        <div class="nivel">Nível de inutilidade: <span th:text="${powers.nivel}">5</span></div>
+    <div th:each="poder : ${powers}" class="superpoder">
+        <h2 th:text="${poder.nome}">Nome do poder</h2>
+        <p th:text="${poder.descricao}">Descrição do poder</p>
+        <div class="nivel">Nível de inutilidade: <span th:text="${poder.nivelInutilidade}">5</span></div>
     </div>
+
 
 </body>
 </html>
