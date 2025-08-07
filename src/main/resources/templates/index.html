@@ -1,12 +1,39 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PowerFail Ranking</title>
+    <title>Superpoderes Inúteis</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f5f5f5;
+            padding: 40px;
+        }
+        h1 {
+            color: #444;
+        }
+        .superpoder {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .nivel {
+            font-size: 14px;
+            color: #999;
+        }
+    </style>
 </head>
 <body>
-    <h1>PowerFail Ranking</h1>
+
+    <h1>🦸‍♂️ Superpoderes Mais Inúteis Já Criados</h1>
+
+    <div th:each="poder : ${powers}" class="powers">
+        <h2 th:text="${powers.Nome}">Nome do poder</h2>
+        <p th:text="${powers.Descrição}">Descrição do poder</p>
+        <div class="nivel">Nível de inutilidade: <span th:text="${powers.nivel}">5</span></div>
+    </div>
+
 </body>
 </html>

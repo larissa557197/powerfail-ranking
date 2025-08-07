@@ -2,6 +2,7 @@ package br.com.fiap.powerfail_ranking.power;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -15,7 +16,8 @@ public class PowerController {
         this.powerService = powerService;
     }
 
-    // GET 
+    // GET - lista todos os poderes
+    @GetMapping
     public String index(Model model) {
         var powers = powerService.getAllPowers();
         model.addAttribute("powers", powers);
