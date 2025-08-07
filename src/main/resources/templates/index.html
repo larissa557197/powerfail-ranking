@@ -2,39 +2,57 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Superpoderes Inúteis</title>
+    <title>Ranking dos Superpoderes Mais Inúteis</title>
     <style>
+        
         body {
-            font-family: sans-serif;
-            background-color: #f5f5f5;
+             background-color: #121212;
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
             padding: 40px;
         }
+
         h1 {
-            color: #444;
+            color: #f7f7f7;
+            margin-bottom: 30px;
         }
-        .superpoder {
-            background: white;
+
+        .poder {
+            background-color: #6d0430;
             border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 12px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
         }
+
+        .nome {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #121212;
+        }
+
+        .descricao {
+            margin: 10px 0;
+            color: #121212;
+        }
+
         .nivel {
-            font-size: 14px;
-            color: #999;
+            font-size: 0.9em;
+            color: #888;
         }
     </style>
 </head>
 <body>
 
-    <h1> Superpoderes Mais Inúteis Já Criados</h1>
+    <h1> Ranking dos Superpoderes Mais Inúteis</h1>
 
-    <div th:each="poder : ${powers}" class="superpoder">
-        <h2 th:text="${poder.nome}">Nome do poder</h2>
-        <p th:text="${poder.descricao}">Descrição do poder</p>
-        <div class="nivel">Nível de inutilidade: <span th:text="${poder.nivelInutilidade}">5</span></div>
+    <div th:each="poder : ${powers}" class="poder">
+        <div class="nome" th:text="${poder.nome}">Nome do Poder</div>
+        <div class="descricao" th:text="${poder.descricao}">Descrição</div>
+        <div class="nivel">
+            Nível de inutilidade: <span th:text="${poder.nivelInutilidade}">5</span>
+        </div>
     </div>
-
 
 </body>
 </html>
