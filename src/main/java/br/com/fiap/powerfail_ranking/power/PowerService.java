@@ -16,7 +16,7 @@ public class PowerService {
 
     // metodo que retorna a orgem de inutilidade
     public List<Power> getAllPowers(){
-        return powerRepository.findAllByOrderNivelInutilidadeDesc();
+        return powerRepository.findAllByOrderByNivelInutilidadeDesc();
     }
     
 }
