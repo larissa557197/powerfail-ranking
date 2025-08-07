@@ -1,6 +1,7 @@
 package br.com.fiap.powerfail_ranking.power;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,6 +29,7 @@ public class Power {
     private String descricao;
 
     // nivel da inutilidade do poder
-    private int nivel_inutilidade;
-    
+    @Column(name = "nivel_inutilidade")
+    private int nivelInutilidade;
+
 }
