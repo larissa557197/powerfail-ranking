@@ -4,55 +4,122 @@
     <meta charset="UTF-8">
     <title>Ranking dos Superpoderes Mais Inúteis</title>
     <style>
-        
         body {
-             background-color: #121212;
-            color: #fff;
+            background-color: #1e1e2f;
+            color: #f0f0f0;
             font-family: 'Segoe UI', sans-serif;
+            margin: 0;
             padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
-            color: #f7f7f7;
-            margin-bottom: 30px;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px #000;
         }
 
         .poder {
-            background-color: #6d0430;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-            margin-bottom: 20px;
+            background: #2c2c3e;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            margin-bottom: 25px;
             padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 800px;
+            transition: transform 0.2s ease;
+        }
+
+        .poder:hover {
+            transform: scale(1.02);
+            background: #343450;
+        }
+
+        .imagem img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #ffd700;
+        }
+
+        .info {
+            flex: 1;
         }
 
         .nome {
-            font-size: 1.4em;
+            font-size: 1.6em;
             font-weight: bold;
-            color: #121212;
+            color: #ffd700;
+            margin-bottom: 10px;
         }
 
         .descricao {
-            margin: 10px 0;
-            color: #121212;
+            font-size: 1em;
+            color: #ccc;
+            margin-bottom: 8px;
         }
 
         .nivel {
             font-size: 0.9em;
-            color: #888;
+            color: #aaa;
+        }
+
+        @media (max-width: 600px) {
+            .poder {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .imagem img {
+                width: 80px;
+                height: 80px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1> Ranking dos Superpoderes Mais Inúteis</h1>
+<h1>Ranking dos Superpoderes Mais Inúteis</h1>
 
-    <div th:each="poder : ${powers}" class="poder">
+<div th:each="poder : ${powers}" class="poder">
+    <div class="imagem">
+        <div th:switch="${poder.nome}">
+            <img th:case="'Invocar uma colher'" th:src="@{/images/invocar-colher.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Mudar a cor de folhas secas'" th:src="@{/images/mudar-cor-folhas.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Falar com pedras'" th:src="@{/images/falar-com-pedras.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Sentir cheiros pelo cotovelo'" th:src="@{/images/cheiro-cotovelo.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Trocar o som do próprio espirro'" th:src="@{/images/espirro-miau.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Saber a previsão do tempo de ontem'" th:src="@{/images/tempo-ontem.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Fazer barulho de clipe caindo'" th:src="@{/images/clipe-caindo.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Abaixar a temperatura de uma uva'" th:src="@{/images/uva-fria.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Saber a cor da meia de qualquer um'" th:src="@{/images/meia-colorida.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Fazer crescer um fio de cabelo'" th:src="@{/images/cabelo-unico.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Localizar tomadas em um cômodo'" th:src="@{/images/tomada-localizar.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Fazer sumir um pixel de uma tela'" th:src="@{/images/pixel-sumir.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Saber se uma banana está madura'" th:src="@{/images/banana-madura.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Sentir quando alguém bocejou perto'" th:src="@{/images/bocejo-atrasado.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Emitir cheiro de café'" th:src="@{/images/cheiro-cafe.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Fazer um botão de camisa se soltar'" th:src="@{/images/botao-camisa.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Acelerar o crescimento de musgo'" th:src="@{/images/musgo-crescendo.png}" alt="Imagem do superpoder"/>
+            <img th:case="'Saber quantas vezes você piscou'" th:src="@{/images/piscar-contador.png}" alt="Imagem do superpoder"/>
+            <img th:case="*" th:src="@{/images/default.png}" alt="Imagem não encontrada"/>
+        </div>
+    </div>
+    <div class="info">
         <div class="nome" th:text="${poder.nome}">Nome do Poder</div>
         <div class="descricao" th:text="${poder.descricao}">Descrição</div>
         <div class="nivel">
             Nível de inutilidade: <span th:text="${poder.nivelInutilidade}">5</span>
         </div>
     </div>
+</div>
 
 </body>
 </html>

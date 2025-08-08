@@ -34,4 +34,6 @@ public class Power {
     @Column(name = "nivel_inutilidade")
     private int nivelInutilidade;
 
+
+
 }
